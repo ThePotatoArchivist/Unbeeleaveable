@@ -8,10 +8,10 @@
 		"ThePotatoArchivist"
 	],
 	"contact": {
-		"homepage": "https://github.com/JosiahFu/Unbeeleaveable",
+		"homepage": "https://modrinth.com/mod/unbeeleaveable",
 		"sources": "https://github.com/JosiahFu/Unbeeleaveable"
 	},
-	"license": "CC0-1.0",
+	"license": "MIT",
 	"icon": "assets/unbeeleaveable/icon.png",
 	"environment": "*",
 	"entrypoints": {

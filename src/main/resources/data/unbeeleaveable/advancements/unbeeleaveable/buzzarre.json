@@ -1,0 +1,32 @@
+{
+  "display": {
+    "icon": {
+      "item": "unbeeleaveable:exitless_beehive"
+    },
+    "title": {
+      "translate": "advancements.unbeeleaveable.buzzarre.title"
+    },
+    "description": {
+      "translate": "advancements.unbeeleaveable.buzzarre.desc"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "parent": "minecraft:husbandry/silk_touch_nest",
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unbeeleaveable:exitless_beehive"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

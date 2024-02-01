@@ -1,3 +1,5 @@
 {
-  "block.unbeeleaveable.exitless_beehive": "Beehive With No Exits"
+  "block.unbeeleaveable.exitless_beehive": "Beehive With No Exits",
+  "advancements.unbeeleaveable.buzzarre.title": "That's Buzzarre",
+  "advancements.unbeeleaveable.buzzarre.desc": "Acquire a beehive with no exits"
 }
