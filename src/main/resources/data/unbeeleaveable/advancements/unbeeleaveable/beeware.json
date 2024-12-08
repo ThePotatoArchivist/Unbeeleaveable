@@ -1,0 +1,29 @@
+{
+  "parent": "unbeeleaveable:unbeeleaveable/buzzarre",
+  "criteria": {
+    "light_bee_bomb": {
+      "trigger": "unbeeleaveable:near_bee_explosion"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.unbeeleaveable.beeware.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "unbeeleaveable:bee_bomb"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.unbeeleaveable.beeware.title"
+    }
+  },
+  "requirements": [
+    [
+      "light_bee_bomb"
+    ]
+  ],
+  "sends_telemetry_event": false
+}

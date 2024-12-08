@@ -1,5 +1,9 @@
 {
   "block.unbeeleaveable.exitless_beehive": "Beehive With No Exits",
+  "block.unbeeleaveable.bee_bomb": "Bee Bomb",
+  "entity.unbeeleaveable.bee_bomb": "Bee Bomb",
   "advancements.unbeeleaveable.buzzarre.title": "That's Buzzarre",
-  "advancements.unbeeleaveable.buzzarre.desc": "Acquire a beehive with no exits"
+  "advancements.unbeeleaveable.buzzarre.desc": "Acquire a beehive with no exits",
+  "advancements.unbeeleaveable.beeware.title": "Beeware",
+  "advancements.unbeeleaveable.beeware.desc": "Detonate a bee bomb"
 }

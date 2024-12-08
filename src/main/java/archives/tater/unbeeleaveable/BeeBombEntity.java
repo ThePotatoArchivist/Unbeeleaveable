@@ -8,6 +8,7 @@ import net.minecraft.entity.TntEntity;
 import net.minecraft.entity.passive.BeeEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 import net.minecraft.world.World.ExplosionSourceType;
@@ -46,8 +47,8 @@ public class BeeBombEntity extends TntEntity implements CustomExplodable {
     @Override
     public void explodeCustom() {
         this.getWorld().createExplosion(this, this.getX(), this.getBodyY(0.0625), this.getZ(), 1.0f, ExplosionSourceType.TNT);
-        List<Entity> entities = this.getWorld().getOtherEntities(null, Box.of(this.getPos(), ANGER_RANGE, ANGER_RANGE, ANGER_RANGE),
-                e -> e instanceof LivingEntity && !(e instanceof BeeEntity));
+        List<Entity> entities = this.getWorld().getOtherEntities(null, Box.of(this.getPos(), 2*ANGER_RANGE, 2*ANGER_RANGE, 2*ANGER_RANGE),
+                e -> e != this.getOwner() && e instanceof LivingEntity livingEntity && !(e instanceof BeeEntity) && !livingEntity.isInvulnerable());
 
         for (NbtCompound bee : bees) {
             BeeEntity beeEntity = EntityType.BEE.create(this.getWorld());
@@ -64,6 +65,12 @@ public class BeeBombEntity extends TntEntity implements CustomExplodable {
                 if (!entities.isEmpty()) {
                     beeEntity.setTarget((LivingEntity) entities.get(this.random.nextInt(entities.size())));
                 }
+            }
+        }
+
+        for (var entity : entities) {
+            if (entity instanceof ServerPlayerEntity serverPlayerEntity) {
+                Unbeeleaveable.NEAR_BEE_EXPLOSION.trigger(serverPlayerEntity);
             }
         }
     }

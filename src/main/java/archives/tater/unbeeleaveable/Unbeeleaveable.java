@@ -7,6 +7,8 @@ import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.advancement.criterion.Criteria;
+import net.minecraft.advancement.criterion.TickCriterion;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.MapColor;
@@ -103,6 +105,8 @@ public class Unbeeleaveable implements ModInitializer {
 			new Identifier(MOD_ID, "bee_bomb"),
 			new SpecialRecipeSerializer<>(BeeBombCraftingRecipe::new)
 	);
+
+	public static final TickCriterion NEAR_BEE_EXPLOSION = Criteria.register(new TickCriterion(new Identifier(MOD_ID, "near_bee_explosion")));
 
 	@Override
 	public void onInitialize() {
