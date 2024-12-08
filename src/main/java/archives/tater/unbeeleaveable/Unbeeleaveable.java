@@ -6,16 +6,24 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
 import net.minecraft.block.MapColor;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.block.enums.Instrument;
+import net.minecraft.entity.EntityDimensions;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
+import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.SpecialRecipeSerializer;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.poi.PointOfInterestType;
@@ -44,10 +52,22 @@ public class Unbeeleaveable implements ModInitializer {
 					.burnable()
 	));
 
+	public static final Block BEE_BOMB = Registry.register(
+			Registries.BLOCK,
+			new Identifier(MOD_ID, "bee_bomb"),
+			new BeeBombBlock(FabricBlockSettings.copyOf(Blocks.BEE_NEST))
+	);
+
 	public static final Item EXITLESS_BEEHIVE_ITEM = Registry.register(
 			Registries.ITEM,
 			new Identifier(MOD_ID, "exitless_beehive"),
 			new BlockItem(EXITLESS_BEEHIVE, new FabricItemSettings())
+	);
+
+	public static final Item BEE_BOMB_ITEM = Registry.register(
+			Registries.ITEM,
+			new Identifier(MOD_ID, "bee_bomb"),
+			new BlockItem(BEE_BOMB, new FabricItemSettings())
 	);
 
 	public static final BlockEntityType<ExitlessBeehiveBlockEntity> EXITLESS_BEEHIVE_BLOCK_ENTITY = Registry.register(
@@ -59,6 +79,30 @@ public class Unbeeleaveable implements ModInitializer {
 	public static final RegistryKey<PointOfInterestType> EXITLESS_BEEHIVE_POI =
 			RegistryKey.of(RegistryKeys.POINT_OF_INTEREST_TYPE, new Identifier(MOD_ID, "exitless_beehive"));
 
+	public static final BlockEntityType<BeeBombBlockEntity> BEE_BOMB_BLOCK_ENTITY = Registry.register(
+			Registries.BLOCK_ENTITY_TYPE,
+			new Identifier(MOD_ID, "bee_bomb"),
+			FabricBlockEntityTypeBuilder.create(BeeBombBlockEntity::new, BEE_BOMB).build()
+	);
+
+	public static final EntityType<BeeBombEntity> BEE_BOMB_ENTITY = Registry.register(
+			Registries.ENTITY_TYPE,
+			new Identifier(MOD_ID, "bee_bomb"),
+			FabricEntityTypeBuilder.<BeeBombEntity>create(SpawnGroup.MISC, BeeBombEntity::new)
+					.fireImmune()
+					.dimensions(EntityDimensions.changing(0.98f, 0.98f))
+					.trackRangeChunks(10)
+					.trackedUpdateRate(10)
+					.build()
+	);
+
+	public static final TagKey<Item> BEE_BOMB_INGREDIENT = TagKey.of(RegistryKeys.ITEM, new Identifier(MOD_ID, "bee_bomb_ingredient"));
+
+	public static final RecipeSerializer<BeeBombCraftingRecipe> BEE_BOMB_CRAFTING_RECIPE = Registry.register(
+			Registries.RECIPE_SERIALIZER,
+			new Identifier(MOD_ID, "bee_bomb"),
+			new SpecialRecipeSerializer<>(BeeBombCraftingRecipe::new)
+	);
 
 	@Override
 	public void onInitialize() {

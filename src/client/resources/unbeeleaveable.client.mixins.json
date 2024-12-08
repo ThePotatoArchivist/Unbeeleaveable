@@ -3,6 +3,7 @@
 	"package": "archives.tater.unbeeleaveable.mixin.client",
 	"compatibilityLevel": "JAVA_17",
 	"client": [
+		"TntEntityRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

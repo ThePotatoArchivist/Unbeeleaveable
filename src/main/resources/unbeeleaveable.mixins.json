@@ -4,7 +4,10 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "BeehiveBlockEntityMixin",
-    "PointOfInterestTypesInvoker"
+    "PointOfInterestTypesInvoker",
+    "TntBlockMixin",
+    "TntEntityAccessor",
+    "TntEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
