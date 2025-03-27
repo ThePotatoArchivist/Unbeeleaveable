@@ -13,7 +13,7 @@ import java.util.Set;
 @Mixin(PointOfInterestTypes.class)
 public interface PointOfInterestTypesInvoker {
 	@Invoker("register")
-	public static PointOfInterestType register(Registry<PointOfInterestType> registry, RegistryKey<PointOfInterestType> key, Set<BlockState> states, int ticketCount, int searchDistance) {
+	static PointOfInterestType register(Registry<PointOfInterestType> registry, RegistryKey<PointOfInterestType> key, Set<BlockState> states, int ticketCount, int searchDistance) {
 		throw new AssertionError();
 	}
 }

@@ -1,5 +1,5 @@
 {
-  "parent": "unbeeleaveable:unbeeleaveable/buzzarre",
+  "parent": "minecraft:husbandry/silk_touch_nest",
   "criteria": {
     "light_bee_bomb": {
       "trigger": "unbeeleaveable:near_bee_explosion"
@@ -11,9 +11,9 @@
       "translate": "advancements.unbeeleaveable.beeware.desc"
     },
     "frame": "goal",
-    "hidden": false,
+    "hidden": true,
     "icon": {
-      "item": "unbeeleaveable:bee_bomb"
+      "id": "unbeeleaveable:bee_bomb"
     },
     "show_toast": true,
     "title": {

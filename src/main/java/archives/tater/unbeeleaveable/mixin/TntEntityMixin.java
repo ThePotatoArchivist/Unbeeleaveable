@@ -1,6 +1,6 @@
 package archives.tater.unbeeleaveable.mixin;
 
-import archives.tater.unbeeleaveable.CustomExplodable;
+import archives.tater.unbeeleaveable.duck.CustomExplodable;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.entity.TntEntity;

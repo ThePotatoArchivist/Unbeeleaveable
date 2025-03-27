@@ -3,9 +3,9 @@ package archives.tater.unbeeleaveable;
 import net.minecraft.block.BlockEntityProvider;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.TntBlock;
+import net.minecraft.block.entity.BeehiveBlockEntity.BeeData;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -40,7 +40,7 @@ public class BeeBombBlock extends TntBlock implements BlockEntityProvider {
     public static void explodeBomb(World world, BlockPos pos, @Nullable LivingEntity igniter) {
         if (!world.isClient) {
             var blockEntity = (BeeBombBlockEntity) world.getBlockEntity(pos);
-            List<NbtCompound> bees = blockEntity == null ? List.of() : blockEntity.getBees();
+            List<BeeData> bees = blockEntity == null ? List.of() : blockEntity.getBees();
             var beeBombEntity =
                     new BeeBombEntity(world, bees, pos.getX() + 0.5, pos.getY(), pos.getZ() + 0.5, igniter);
             world.spawnEntity(beeBombEntity);

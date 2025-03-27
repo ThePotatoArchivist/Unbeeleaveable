@@ -4,5 +4,8 @@
   "ingredient": {
     "item": "minecraft:bee_nest"
   },
-  "result": "unbeeleaveable:exitless_beehive"
+  "result": {
+    "count": 1,
+    "id": "unbeeleaveable:exitless_beehive"
+  }
 }

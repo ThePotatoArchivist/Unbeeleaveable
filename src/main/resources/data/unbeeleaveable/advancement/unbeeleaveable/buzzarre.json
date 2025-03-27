@@ -1,7 +1,7 @@
 {
   "display": {
     "icon": {
-      "item": "unbeeleaveable:exitless_beehive"
+      "id": "unbeeleaveable:exitless_beehive"
     },
     "title": {
       "translate": "advancements.unbeeleaveable.buzzarre.title"
